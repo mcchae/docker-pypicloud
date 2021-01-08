@@ -26,6 +26,7 @@ ADD pypicloud-uwsgi.sh /etc/my_init.d/pypicloud-uwsgi.sh
 RUN mkdir -p /etc/pypicloud
 # ADD config.ini /etc/pypicloud/config.ini
 ADD config-mysql.ini /etc/pypicloud/config.ini
+RUN chmod 644 /etc/pypicloud/config.ini
 ADD wait-for /wait-for
 RUN chmod +x /wait-for
 
@@ -34,6 +35,7 @@ VOLUME /var/lib/pypicloud
 
 # Add the command for easily creating config files
 ADD make-config.sh /usr/local/bin/make-config
+RUN chmod +x /usr/local/bin/make-config
 
 # Add an environment variable that pypicloud-uwsgi.sh uses to determine which
 # user to run as
