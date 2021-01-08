@@ -9,7 +9,7 @@ fi
 if [ ! -e datadir ];then
     mkdir -p datadir
     if [ $UID -eq "0" ];then
-        chown -R 999:999 datadir
+        chown -R 1000:1000 datadir
     fi
 fi
 
