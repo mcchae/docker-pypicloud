@@ -5,17 +5,16 @@ services:
     depends_on:
       - mysql
     # image: stevearc/pypicloud
-    image: pypicloud:1.1.7
+    image: mcchae/pypicloud:1.1.7
     ports:
       - "8080:8080"
     volumes:
-      - ./config-mysql.ini:/etc/pypicloud/config.ini:ro
-      - ./wait-for:/wait-for:ro
       - ./packages:/var/lib/pypicloud/packages
   mysql:
     image: mysql
     environment:
       MYSQL_DATABASE: pypi
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    user: "1000"
     volumes:
       - ./datadir:/var/lib/mysql

@@ -26,6 +26,8 @@ ADD pypicloud-uwsgi.sh /etc/my_init.d/pypicloud-uwsgi.sh
 RUN mkdir -p /etc/pypicloud
 # ADD config.ini /etc/pypicloud/config.ini
 ADD config-mysql.ini /etc/pypicloud/config.ini
+ADD wait-for /wait-for
+RUN chmod +x /wait-for
 
 # Create a working directory for pypicloud
 VOLUME /var/lib/pypicloud
