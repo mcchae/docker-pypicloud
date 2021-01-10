@@ -37,7 +37,6 @@
 * `config-mysql.ini` 의 내용을 /etc/pypicloud/config.ini 에 넣음
   * 디폴트로 로그인을 하지 않아도 패키지를 읽을 수 있도록 다음 내용 추가
     * `pypi.default_read = everyone`
-    * `pypi.default_write = everyone`
   * uwsgi 설정에서 디폴트 프로세스를 20개 띄우는데 이를 절반으로 줄임
     * `processes = 4` <= 20
     * `reload-mercy = 3` <= 15
