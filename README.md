@@ -32,5 +32,22 @@
 ```
 위와 같이 실행하여 돌고 있는 mysql과 pypicloud 컨테이너를 종료시킵니다.
 
+### 작업내용
+
+* `config-mysql.ini` 의 내용을 /etc/pypicloud/config.ini 에 넣음
+  * 디폴트로 로그인을 하지 않아도 패키지를 읽을 수 있도록 다음 내용 추가
+    * `pypi.default_read = everyone`
+    * `pypi.default_write = everyone`
+  * uwsgi 설정에서 디폴트 프로세스를 20개 띄우는데 이를 절반으로 줄임
+    * `processes = 4` <= 20
+    * `reload-mercy = 3` <= 15
+    * `worker-reload-mercy = 3` <= 15
+  > 만약 위의 내용을 다른 설정으로 실행시키려면, 다음과 같이 pypicloud의 볼륨 마운트에 추가하면 됨
+  
+  ```yaml
+      volumes:
+      - ./config-mysql.ini:/etc/pypicloud/config.ini:ro
+  ```
+
 ## 문의사항
 기타 문의사항 등은 mcchae@gmail.com 으로 문의 주십시오

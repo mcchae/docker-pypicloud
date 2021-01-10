@@ -10,7 +10,6 @@ services:
       - "8080:8080"
     volumes:
       - ./config-mysql.ini:/etc/pypicloud/config.ini:ro
-      - ./wait-for:/wait-for:ro
       - /root/mywork/docker-pypicloud/packages:/var/lib/pypicloud/packages
   mysql:
     image: mysql
