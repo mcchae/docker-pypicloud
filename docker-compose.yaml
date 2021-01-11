@@ -18,3 +18,5 @@ services:
     user: "1000"
     volumes:
       - ./datadir:/var/lib/mysql
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
